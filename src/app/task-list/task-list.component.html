@@ -43,6 +43,15 @@
           <div>
             <span class="fw-bold">{{ task.title }}</span>
             <small class="text-muted d-block">{{ task.description }}</small>
+            <span
+              class="{{
+                task.status === 'Completed'
+                  ? 'text-success fw-bold'
+                  : 'text-danger fw-bold'
+              }}"
+            >
+              {{ task.status === "Completed" ? "Done!" : "Not done!" }}
+            </span>
           </div>
           <div>
             <button
