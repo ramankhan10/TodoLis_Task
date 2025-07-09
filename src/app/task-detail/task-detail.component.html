@@ -1,13 +1,27 @@
 @if(task){
-<div>
-  <h2>{{ task.title }}</h2>
-  <p><b>description : </b> {{ task.description }}</p>
-  <p>
-    <b>Status : </b> {{ task.status === "pending" ? "Done!" : "Not done!" }}
+<div class="card shadow-sm p-4 mt-4 mx-auto" style="max-width: 400px">
+  <h2 class="card-title text-center mb-3">{{ task.title }}</h2>
+  <p class="card-text"><b>Description: </b> {{ task.description }}</p>
+  <p class="card-text">
+    <b>Status: </b>
+    <span
+      class="{{
+        task.status === 'Completed'
+          ? 'text-success fw-bold'
+          : 'text-danger fw-bold'
+      }}"
+    >
+      {{ task.status === "Completed" ? "Done!" : "Not done!" }}
+    </span>
   </p>
-  <button (click)="goBack()">Back</button>
+  <button class="btn btn-outline-info btn-sm mt-2" (click)="toggleStatus(task)">
+    {{ task.status === "Completed" ? "Mark as Not Done" : "Mark as Done" }}
+  </button>
+  <button class="btn btn-primary mt-3 w-100" (click)="goBack()">Back</button>
 </div>
 }@else {
-<p>No work found.</p>
-<button (click)="goBack()">Back</button>
+<div class="text-center mt-4">
+  <p class="text-muted">No work found.</p>
+  <button class="btn btn-secondary mt-3" (click)="goBack()">Back</button>
+</div>
 }

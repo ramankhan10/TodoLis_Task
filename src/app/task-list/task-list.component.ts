@@ -32,8 +32,8 @@ export class TaskListComponent implements OnInit {
 
   addTask(): void {
     if (this.taskForm.valid) {
-      const { title, describtion } = this.taskForm.value;
-      this.taskService.addTask(title, describtion);
+      const { title, description } = this.taskForm.value;
+      this.taskService.addTask(title, description);
       this.taskForm.reset();
       this.tasks = this.taskService.getTasks();
     }

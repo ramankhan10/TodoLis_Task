@@ -1,7 +1,7 @@
 import { TaskService } from './../Services/task.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../Model/task';
-import { ActivatedRoute ,Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-task-detail',
@@ -11,7 +11,7 @@ import { ActivatedRoute ,Router} from '@angular/router';
   styleUrl: './task-detail.component.scss',
 })
 export class TaskDetailComponent implements OnInit {
-  task: Task | undefined;
+  @Input() task: Task | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,9 +19,18 @@ export class TaskDetailComponent implements OnInit {
     private taskService: TaskService
   ) {}
 
+  toggleStatus(task: Task) {
+    if (task?.status === 'Completed') {
+      task.status = 'pending';
+    } else {
+      task.status = 'Completed';
+    }
+  }
+
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.task = this.taskService.getTask(id);
+    console.log(this.task)
   }
 
   goBack(): void {
