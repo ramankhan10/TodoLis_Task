@@ -1,3 +1,31 @@
+**Версии, используемые в проекте:**  
+- Angular: 18.02.20  
+- Bootstrap: 5.3.7  
+
+**Запуск проекта:**  
+1. Сначала выполните следующую команду в терминале, чтобы установить необходимые пакеты:  
+   #bash
+   npm i
+    
+2. После завершения установки запустите проект командой:  
+   #bash
+   ng serve --open
+
+
+**Versions used in this project:**  
+- Angular: 18.02.20  
+- Bootstrap: 5.3.7  
+
+**Project setup:**  
+1. First, run the following command in the terminal to install the required packages:  
+   #bash
+   npm i
+     
+2. After installation is complete, launch the project using:  
+   bash
+   ng serve --open
+    
+
 # TodoList
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.

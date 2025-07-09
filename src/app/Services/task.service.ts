@@ -7,7 +7,7 @@ import { Task } from '../Model/task';
 export class TaskService {
   private tasks: Task[] = [];
   private storageKey = 'my-app-tasks';
-  private nextId = 1;
+  private nextId = 0;
 
   constructor() {
     this.loadTasksStorage();
@@ -26,14 +26,7 @@ export class TaskService {
       if (savedTasks) {
         this.tasks = JSON.parse(savedTasks);
       } else {
-        this.tasks = [
-          {
-            id: 1,
-            title: 'Learning Angular',
-            description: 'Completion of the test project',
-            status: 'pending',
-          },
-        ];
+        this.tasks = [];
       }
     }
     this.updateNextId();
