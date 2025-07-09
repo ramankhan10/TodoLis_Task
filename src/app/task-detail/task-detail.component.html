@@ -1,1 +1,13 @@
-<p>task-detail works!</p>
+@if(task){
+<div>
+  <h2>{{ task.title }}</h2>
+  <p><b>description : </b> {{ task.description }}</p>
+  <p>
+    <b>Status : </b> {{ task.status === "pending" ? "Done!" : "Not done!" }}
+  </p>
+  <button (click)="goBack()">Back</button>
+</div>
+}@else {
+<p>No work found.</p>
+<button (click)="goBack()">Back</button>
+}
