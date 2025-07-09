@@ -4,7 +4,9 @@ import { Task } from '../Model/task';
 @Injectable({
   providedIn: 'root',
 })
+
 export class TaskService {
+
   private tasks: Task[] = [
     {
       id: 1,
@@ -14,6 +16,10 @@ export class TaskService {
     },
   ];
   private nextId = 2;
+
+  getTasks(): Task[] {
+    return this.tasks;
+  }
 
   getTask(id: number): Task | undefined {
     return this.tasks.find((task) => task.id === id);

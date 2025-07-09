@@ -1,1 +1,27 @@
-<p>task-list works!</p>
+<div>
+  <h2>List of works</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+    <input formControlName="title" type="text" placeholder="work title" />
+    <input
+      formControlName="description"
+      type="text"
+      placeholder="description"
+    />
+    <button type="submit" [disabled]="taskForm.invalid">Add Work</button>
+  </form>
+
+  <ul>
+    @for(task of tasks; track task.id){
+    <li>
+      {{ task.title }}
+      <button class="btn btn-primery">Describtion</button>
+      <button class="btn btn-danger" (click)="deleteTask(task.id)">
+        Delete
+      </button>
+    </li>
+    }@empty {
+    <li>There is nothing to do</li>
+    }
+  </ul>
+</div>
