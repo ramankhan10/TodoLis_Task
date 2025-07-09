@@ -18,11 +18,7 @@ import { Router } from '@angular/router';
   `,
 })
 export class NotFoundComponent {
-
-  constructor(private router: Router) {
-
-  }
-
+  constructor(private router: Router) {}
 
   goBack(): void {
     this.router.navigate(['/tasks']);
