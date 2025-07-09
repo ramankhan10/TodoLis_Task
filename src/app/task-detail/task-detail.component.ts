@@ -30,7 +30,6 @@ export class TaskDetailComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.task = this.taskService.getTask(id);
-    console.log(this.task)
   }
 
   goBack(): void {
